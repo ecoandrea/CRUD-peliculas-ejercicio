@@ -6,7 +6,7 @@ try {
     const pelicula = await Pelicula.crear(data)
 
     res.status(201).json({
-        message: 'Pelicula Creado con éxito',
+        message: 'Pelicula creada con éxito',
         status: 201,
         data: pelicula
     })

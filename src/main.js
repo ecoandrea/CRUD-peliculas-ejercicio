@@ -1,5 +1,5 @@
 import express from 'express';
-import pelicula from './routes/router.pelicula.js';
+import  pelicula from './routes/router.pelicula.js';
 
 const app = express();
 const PORT = 3000

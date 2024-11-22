@@ -1,9 +1,10 @@
 import { Router } from 'express'
-import { crearNuevaPelicula, obtenerTodasLasPeliculas } from '../controllers/pelicula.controller.js';
+import { actualizarUnaPelicula, crearNuevaPelicula, obtenerTodasLasPeliculas } from '../controllers/pelicula.controller.js';
 
 const router = Router();
 
-router.post('/pelicula', crearNuevaPelicula );
-router.get('/pelicula', obtenerTodasLasPeliculas);
+router.post('/peliculas', crearNuevaPelicula );
+router.get('/peliculas', obtenerTodasLasPeliculas);
+router.put('/peliculas/:id', actualizarUnaPelicula)
 
 export default router;

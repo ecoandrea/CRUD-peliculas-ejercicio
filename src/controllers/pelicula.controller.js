@@ -38,3 +38,26 @@ export const obtenerTodasLasPeliculas = async(req, res) => {
         });
     }
 }
+
+export const actualizarUnaPelicula = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const dataPelicula = req.body
+
+        const peliculaActualizada = await Pelicula.actualizarPelicula(id, dataPelicula);
+
+        res.status(201).json({
+            message: 'Usuario Actualizado',
+            status: 201,
+            oldData: peliculaActualizada,
+            newData: dataPelicula
+        })
+    } catch (error) {
+       res.status(500).json({
+        message: 'Error al actualizar la pelicula',
+        status: 500,
+        error,
+        });
+    }
+}
+   

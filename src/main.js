@@ -1,5 +1,5 @@
 import express from 'express';
-import  pelicula from './routes/router.pelicula.js';
+import  peliculas from './routes/router.pelicula.js';
 
 const app = express();
 const PORT = 3000
@@ -7,7 +7,7 @@ const PORT = 3000
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
-app.use('/api/v1', pelicula);
+app.use('/api/v1', peliculas);
 
 
 app.listen(PORT, () => {

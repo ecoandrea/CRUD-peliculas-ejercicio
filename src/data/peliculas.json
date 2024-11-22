@@ -5,5 +5,44 @@
         "anio": "1980",
         "director": "George Lucas",
         "duracion": 130
+    },
+    {
+        "id": "0a986d2a",
+        "nombre": "Star War 3",
+        "anio": "1982",
+        "director": "George Lucas",
+        "duracion": 140
+    },
+    {
+        "id": "94cfc78e",
+        "nombre": "Star War 3",
+        "anio": "1985",
+        "director": "George Lucas",
+        "duracion": 140,
+        "active": true
+    },
+    {
+        "id": "4c0cd517",
+        "nombre": "Star War 4",
+        "anio": "1987",
+        "director": "George Lucas",
+        "duracion": 140,
+        "active": true
+    },
+    {
+        "id": "035f5074",
+        "nombre": "Amenaza fantasma",
+        "anio": "1999",
+        "director": "George Lucas",
+        "duracion": 140,
+        "active": true
+    },
+    {
+        "id": "6cc0e0eb",
+        "nombre": "Guerra de los clones",
+        "anio": "2003",
+        "director": "George Lucas",
+        "duracion": 140,
+        "active": true
     }
 ]

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createDataFile, getAllData } from '../utils/fileUtils.js';
+import { createDataFile, getAllData, updatePelicula } from '../utils/fileUtils.js';
 
 
 export class Pelicula {
@@ -70,9 +70,19 @@ export class Pelicula {
             nombre: this.#nombre,
             anio: this.#anio,
             director: this.#director,
-            duracion: this.#duracion
+            duracion: this.#duracion,
+            active: this.#active
         };
     }
+
+    desactive() {
+        console.log(this.#active)
+        this.#active = false
+      }
+    
+      active() {
+        this.#active = true
+      }
 
     static async crear(data) {
         try {
@@ -97,6 +107,14 @@ export class Pelicula {
         }
       }
 
+      static async actualizarPelicula (id, data) {
+        try {
+        const actualizarMovie = await updatePelicula(id, data, 'peliculas.json')
+        return actualizarMovie
+        } catch (error) {
+            throw new Error('Error al actualizar las peliculas', error)
+        }
+      }
 
 
 }

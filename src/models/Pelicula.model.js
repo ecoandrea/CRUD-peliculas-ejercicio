@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { createDataFile, getAllData, softDeletePelicula, updatePelicula } from '../utils/fileUtils.js';
+import { ValidacionPelicula } from '../utils/Validaciones.js';
 
 
 export class Pelicula {
@@ -11,10 +12,10 @@ export class Pelicula {
     #active
     constructor(nombre, anio, director, duracion) {
         this.#id = uuidv4().slice(0, 8); // para que quede id de 4 caracteres
-        this.#nombre = nombre;
-        this.#anio = anio;
-        this.#director = director;
-        this.#duracion = duracion;
+        this.#nombre = ValidacionPelicula.nombre(nombre, );
+        this.#anio = ValidacionPelicula.anio(anio); 
+        this.#director = ValidacionPelicula.director(director, 'director'); 
+        this.#duracion = ValidacionPelicula.duracion(duracion, 'duracion')
         this.#active = true;
 
     }
@@ -49,19 +50,44 @@ export class Pelicula {
     }
     
     setNombre(newNombre) {
-        this.#nombre = newNombre;
-    }
+        try {
+
+         ValidacionPelicula.nombre(nombre)
+         this.#nombre = newNombre;
     
+        } catch (error) {
+            throw new Error(error)
+        }
+        
+    }
     setAnio(newAnio) {
-        this.#anio = newAnio;
+        try {
+            ValidacionPelicula.anio(anio) //
+            this.#anio = newAnio;
+        } catch (error) {
+            throw new Error(error)
+        }
+        
     }
     
     setDirector(newDirector) {
-        this.#director = newDirector;
+        try {
+            ValidacionPelicula.director(director)
+            this.#director = newDirector;
+        } catch (error) {
+            throw new Error(error)
+        }
+        
     }
     
     setDuracion(newDuracion) {
-        this.#duracion = newDuracion;
+        try {
+            ValidacionPelicula.duracion(duracion)
+            this.#duracion = newDuracion;
+        } catch (error) {
+            throw new Error(error)
+        }
+        
     }
 
     desactive() {

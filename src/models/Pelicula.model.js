@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { createDataFile, getAllData, updatePelicula } from '../utils/fileUtils.js';
+import { createDataFile, getAllData, softDeletePelicula, updatePelicula } from '../utils/fileUtils.js';
 
 
 export class Pelicula {
@@ -64,6 +64,15 @@ export class Pelicula {
         this.#duracion = newDuracion;
     }
 
+    desactive() {
+        console.log(this.#active)
+        this.#active = false
+      }
+    
+      active() {
+        this.#active = true
+      }
+
     getAllProperties() {
         return {
             id: this.#id,
@@ -75,14 +84,20 @@ export class Pelicula {
         };
     }
 
-    desactive() {
-        console.log(this.#active)
-        this.#active = false
-      }
+    static instancearPelicula(objeto) {
+        try {
+            const { id, nombre, anio, director, duracion } = objeto;
+            const nuevaInstancia = new Pelicula(nombre, anio, director, duracion);
+            nuevaInstancia.setId(id)
     
-      active() {
-        this.#active = true
+            return nuevaInstancia
+        } catch (error) {
+            throw new Error('Problemas al formatear la instancia de Usuario', error)
+        }
       }
+
+
+   
 
     static async crear(data) {
         try {
@@ -115,6 +130,15 @@ export class Pelicula {
             throw new Error('Error al actualizar las peliculas', error)
         }
       }
+
+      static async borrarPelicula(id) {
+        try {
+          await softDeletePelicula(id, 'peliculas.json', Pelicula)
+        } catch (error) {
+          throw new Error(`Fallo al eliminar el usuario`, error);
+        }
+      }
+
 
 
 }

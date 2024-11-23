@@ -40,3 +40,24 @@ export const updatePelicula = async(id, newData, pathData) => {
         throw new Error('No pudimos actualizar la peicula', error)
     }
 }
+
+
+export const softDeletePelicula = async(id, pathData, Model) => {
+    try {
+        const data = await readFile(pathData);
+        
+
+        const indexData = data.findIndex(dataFound => dataFound.id === id)
+        if (indexData === -1) throw new Error(`No pudimos encontrar la data`);
+
+        const newInstance = Model.instancearPelicula(data[indexData]);
+        console.log(newInstance)
+        newInstance.desactive();
+        
+        data[indexData] = newInstance.getAllProperties()
+
+        await createFile(data, pathData)        
+    } catch (error) {
+        throw new Error("No pudimos actualizar la data", error);
+    }
+}

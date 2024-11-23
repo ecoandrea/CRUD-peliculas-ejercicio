@@ -61,3 +61,21 @@ export const actualizarUnaPelicula = async(req, res) => {
     }
 }
    
+export const softBorrarPelicula = async (req, res) => {
+    try {
+        const {id} = req.params
+        await Pelicula.borrarPelicula(id)
+
+        res.status(200).json({
+            message: 'Pelicula eliminada con exito',
+            status: 200,
+         
+        })
+    } catch (error) {
+        res.status(500).json({
+            message: 'Error al eliminar la pelicula',
+            status: 500,
+            error
+        });
+    }
+ }

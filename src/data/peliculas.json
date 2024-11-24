@@ -4,7 +4,8 @@
         "nombre": "Star War 2",
         "anio": "1980",
         "director": "George Lucas",
-        "duracion": 130
+        "duracion": 130,
+        "active": true
     },
     {
         "id": "0a986d2a",
@@ -12,14 +13,6 @@
         "anio": "1982",
         "director": "George Lucas",
         "duracion": 140
-    },
-    {
-        "id": "94cfc78e",
-        "nombre": "Star War 3",
-        "anio": "1985",
-        "director": "George Lucas",
-        "duracion": 140,
-        "active": true
     },
     {
         "id": "4c0cd517",
@@ -31,10 +24,10 @@
     },
     {
         "id": "035f5074",
-        "nombre": "Amenaza fantasma",
-        "anio": "1999",
-        "director": "George Lucas",
-        "duracion": 140,
+        "nombre": "Titanic",
+        "anio": "1998",
+        "director": "John Cameron",
+        "duracion": 100,
         "active": true
     },
     {
@@ -44,5 +37,37 @@
         "director": "George Lucas",
         "duracion": 140,
         "active": false
+    },
+    {
+        "id": "94368c1c",
+        "nombre": "Indiana Jones",
+        "anio": 1983,
+        "director": "George Lucas",
+        "duracion": 123,
+        "active": false
+    },
+    {
+        "id": "3848a806",
+        "nombre": "Mi vecino Totoro",
+        "anio": 1988,
+        "director": "Hayao Miyazaki",
+        "duracion": 86,
+        "active": true
+    },
+    {
+        "id": "5a05dc25",
+        "nombre": "Gladiador",
+        "anio": 2000,
+        "director": "Ridley Scott",
+        "duracion": 155,
+        "active": true
+    },
+    {
+        "id": "b9e25c0a",
+        "nombre": "Star War 2",
+        "anio": 1980,
+        "director": "George Lucas",
+        "duracion": 130,
+        "active": true
     }
 ]

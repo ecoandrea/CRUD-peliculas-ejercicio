@@ -16,8 +16,8 @@ router.post("/peliculas", crearNuevaPelicula);
 router.get("/peliculas", obtenerTodasLasPeliculas);
 router.get("/peliculas/active", obtenerTodasPeliculasActivas);
 router.get("/peliculas/id/:id", obtenerPeliculaBuscandoPorId);
-//router.get("/peliculas/nombre/:nombre", obtenerPeliculaPorNombre);
-router.get("peliculas?nombre=nombre", obtenerPeliculaPorNombre )
+router.get("/peliculas/nombre/:nombre", obtenerPeliculaPorNombre);
+//router.get("peliculas?nombre=nombre", obtenerPeliculaPorNombre )
 router.get("/peliculas/director/:director", obtenerPeliculaPorDirector);
 router.put("/peliculas/:id", actualizarUnaPelicula);
 router.put("/peliculas/delete/:id", softBorrarPelicula);

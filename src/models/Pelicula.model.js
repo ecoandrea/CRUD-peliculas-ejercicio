@@ -84,7 +84,7 @@ export class Pelicula {
         }
     }
 
-    deactivate() {
+    desactivate() {
         console.log(this.#active);
         this.#active = false;
     }
@@ -141,7 +141,17 @@ export class Pelicula {
 
     static async actualizarPelicula(id, data) {
         try {
-            const actualizarMovie = await updatePelicula(id, data, 'peliculas.json');
+            const {nombre, anio, director, duracion} = data
+            const validarNombre = ValidacionPelicula.nombrePelicula(nombre)
+            const validarAnio = ValidacionPelicula.anioPelicula(anio)
+            const validarDirector = ValidacionPelicula.nombreDirectorPelicula(director)
+            const validarDuracion = ValidacionPelicula.duracionPelicula(duracion)
+
+            const objetoValidado = { nombre: validarNombre, anio: validarAnio, director: validarDirector, duracion: validarDuracion}
+
+            
+
+            const actualizarMovie = await updatePelicula(id, objetoValidado, 'peliculas.json');
             return actualizarMovie;
         } catch (error) {
             throw new InternalServerError('Error al actualizar las películas', error);

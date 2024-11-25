@@ -112,7 +112,7 @@ export const obtenerPeliculaPorNombre = async (req, res, next) => {
 
   try {
     
-    const { nombre } = req.query;
+    const { nombre } = req.params;
     const pelicula = await Pelicula.encontrarPeliculaPorNombre(nombre);
 
     res.status(200).json({
@@ -122,6 +122,7 @@ export const obtenerPeliculaPorNombre = async (req, res, next) => {
     });
   
   } catch (error) {
+    console.error(`Error en obtenerPeliculaPorNombre: ${error.message}`);
     next(error);
   }
 };

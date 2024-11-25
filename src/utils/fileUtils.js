@@ -58,7 +58,7 @@ export const softDeletePelicula = async (id, pathData, Model) => {
         const peliculaInstance = Model.instancearPelicula(peliculaData); // por que hay dos const? preguntar
 
         // Marcar la película como inactiva
-        peliculaInstance.deactivate();  // Aquí usamos deactivate que cambia el estado de 'active'
+        peliculaInstance.desactivate();  // Aquí usamos deactivate que cambia el estado de 'active'
 
         // Actualizar los datos en el archivo
         data[indexData] = peliculaInstance.getAllProperties();
@@ -101,6 +101,7 @@ export const getPeliculaById = async (id, pathData) => {
     }
 }
 
+//falta que funcione cuando hay mas de una pelicula con el mismo nombre
 export const getPeliculaByNombre = async (nombre, pathData) => {
     try {
         const data = await readFile(pathData);

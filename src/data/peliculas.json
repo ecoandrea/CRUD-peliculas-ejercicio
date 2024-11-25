@@ -57,7 +57,7 @@
     {
         "id": "5a05dc25",
         "nombre": "Gladiador",
-        "anio": 2000,
+        "anio": "2004",
         "director": "Ridley Scott",
         "duracion": 155,
         "active": true
@@ -108,6 +108,46 @@
         "anio": 1970,
         "director": "Johny Cahier",
         "duracion": 100,
+        "active": true
+    },
+    {
+        "id": "cbe58a23",
+        "nombre": "Benhur Uno",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": false
+    },
+    {
+        "id": "4f0205c6",
+        "nombre": "Benhur Dos",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": true
+    },
+    {
+        "id": "51833ccf",
+        "nombre": "Benhur Dos",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": true
+    },
+    {
+        "id": "d98cdee8",
+        "nombre": "Benhur Dos",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": true
+    },
+    {
+        "id": "9dafdf4c",
+        "nombre": "Maria del Barrio",
+        "anio": 1970,
+        "director": "Miguel Clara",
+        "duracion": 120,
         "active": true
     }
 ]

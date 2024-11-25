@@ -28,17 +28,17 @@ export const updatePelicula = async (id, newData, pathData) => {
         const data = await readFile(pathData)
         const indexData = data.findIndex(dataFound => dataFound.id === id);
 
-        if (indexData === -1) console.error('No pudimos Encontrar el dato que buscas')
+        if (indexData === -1) console.error('No pudimos encontrar el dato que buscas')
 
         const oldData = { ...data[indexData] }
         data[indexData] = { ...data[indexData], ...newData }
 
-        data[indexData] = { id, ...newData, active: true };
+        data[indexData] = { id, ...newData, active: true }; //preguntar porque va  active
         await createFile(data, pathData)
 
         return oldData
     } catch (error) {
-        throw new JsonError('No pudimos actualizar la peicula', error)
+        throw new JsonError('No pudimos actualizar la película', error)
     }
 }
 
@@ -53,9 +53,9 @@ export const softDeletePelicula = async (id, pathData, Model) => {
             throw new NotFoundError(`Pelicula con ID ${id} no encontrada`);
         }
 
-        // Instanciar la película utilizando el modelo
+        // *Instanciar la película utilizando el modelo
         const peliculaData = data[indexData];
-        const peliculaInstance = Model.instancearPelicula(peliculaData);
+        const peliculaInstance = Model.instancearPelicula(peliculaData); // por que hay dos const? preguntar
 
         // Marcar la película como inactiva
         peliculaInstance.deactivate();  // Aquí usamos deactivate que cambia el estado de 'active'
@@ -66,7 +66,7 @@ export const softDeletePelicula = async (id, pathData, Model) => {
         // Guardar los cambios en el archivo
         await createFile(data, pathData);
 
-        return peliculaInstance;  // Retornar la película desactivada
+        return peliculaInstance;  // *Retornar la película desactivada 
 
     } catch (error) {
         // Manejo de errores
@@ -86,7 +86,7 @@ export const getAllActivePelicula = async (pathData) => {
         return dataToRender
 
     } catch (error) {
-        throw new NotFoundError("No pudimos Encontrar la data", error);
+        throw new NotFoundError("No pudimos encontrar la data", error);
     }
 }
 
@@ -115,8 +115,6 @@ export const getPeliculaByNombre = async (nombre, pathData) => {
     } catch (error) {
         throw new NotFoundError('No pudimos encontrar el dato por el nombre', error)
     }
-
-
 
 }
 

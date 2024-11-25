@@ -69,5 +69,45 @@
         "director": "George Lucas",
         "duracion": 130,
         "active": true
+    },
+    {
+        "id": "a5e1ffa3",
+        "nombre": "Matrix",
+        "anio": 1999,
+        "director": "John Nose",
+        "duracion": 120,
+        "active": false
+    },
+    {
+        "id": "9e25c0a",
+        "nombre": "Matrix 2",
+        "anio": 2002,
+        "director": "John Nose",
+        "duracion": 125,
+        "active": true
+    },
+    {
+        "id": "22ce4536",
+        "nombre": "Maria",
+        "anio": 2002,
+        "director": "John Snow",
+        "duracion": 125,
+        "active": true
+    },
+    {
+        "id": "315d490b",
+        "nombre": "Maria",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": true
+    },
+    {
+        "id": "83a96cda",
+        "nombre": "Maria",
+        "anio": 1970,
+        "director": "Johny Cahier",
+        "duracion": 100,
+        "active": true
     }
 ]

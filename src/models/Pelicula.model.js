@@ -104,7 +104,7 @@ export class Pelicula {
         };
     }
 
-    static instancearPelicula(objeto) {
+    static instancearPelicula(objeto) { //se debe hacer si se usa programacion funcional?
         try {
             const { id, nombre, anio, director, duracion } = objeto;
             const nuevaInstancia = new Pelicula(nombre, anio, director, duracion);
@@ -112,7 +112,7 @@ export class Pelicula {
 
             return nuevaInstancia;
         } catch (error) {
-            throw new InternalServerError('Problemas al formatear la instancia de Pelicula', error);
+            throw new InternalServerError('Problemas al formatear la instancia de Película', error);
         }
     }
 
@@ -126,7 +126,7 @@ export class Pelicula {
 
             return peliculaObject;
         } catch (error) {
-            throw new InternalServerError('Falló al crear una nueva pelicula', error);
+            throw new InternalServerError('Falló al crear una nueva película', error);
         }
     }
 
@@ -135,7 +135,7 @@ export class Pelicula {
             const pelicula = await getAllData('peliculas.json');
             return pelicula;
         } catch (error) {
-            throw new InternalServerError('Error al obtener los datos de las peliculas', error);
+            throw new InternalServerError('Error al obtener los datos de las películas', error);
         }
     }
 
@@ -144,7 +144,7 @@ export class Pelicula {
             const actualizarMovie = await updatePelicula(id, data, 'peliculas.json');
             return actualizarMovie;
         } catch (error) {
-            throw new InternalServerError('Error al actualizar las peliculas', error);
+            throw new InternalServerError('Error al actualizar las películas', error);
         }
     }
 
@@ -152,7 +152,7 @@ export class Pelicula {
         try {
             await softDeletePelicula(id, 'peliculas.json', Pelicula);
         } catch (error) {
-            throw new InternalServerError('Fallo  eliminar la pelicula', error);
+            throw new InternalServerError('Falló eliminar la película', error);
         }
     }
 
@@ -161,7 +161,7 @@ export class Pelicula {
             const peliculasActivas = await getAllActivePelicula('peliculas.json');
             return peliculasActivas
         } catch (error) {
-            throw new InternalServerError("Error al obtener los datos de la pelicula", error);
+            throw new InternalServerError("Error al obtener los datos de la película", error);
         }
     }
 
@@ -170,9 +170,10 @@ export class Pelicula {
             const pelicula = await getPeliculaById(id, 'peliculas.json')
             return pelicula
         } catch (error) {
-            throw new InternalServerError("Error al obtener los datos de la pelicula", error);
+            throw new InternalServerError("Error al obtener los datos de la película", error);
         }
     }
+
 
     static async encontrarPeliculaPorNombre(nombre) {
         try {
@@ -183,12 +184,14 @@ export class Pelicula {
         }
     }
 
+
+
     static async encontrarPeliculaDirector(nombre) {
         try {
             const pelicula = await getPeliculaByDirector(nombre, 'peliculas.json')
             return pelicula
         } catch (error) {
-            throw new InternalServerError("Error al obtener los datos de la pelicula", error);
+            throw new InternalServerError("Error al obtener los datos de la película", error);
         }
     }
 

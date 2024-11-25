@@ -26,6 +26,6 @@ export const readFile = async (pathData) => {
         return JSON.parse(data);
     } catch (error) {
         console.error(`No pudemos leer el archivo: ${error}`);
-        throw new JsonError("Error al leer el archivo", error); //tiene que retornar null
+        throw new JsonError("Error al leer el archivo", error); //tiene que retornar null si no se maneja error
     }
 };

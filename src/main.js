@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: true}));
 
 app.use('/api/v1', peliculas);
 
+app.use(express.static("public"));
+
 app.use(errorHandler)
 app.listen(PORT, () => {
     console.log('El servidor esta arriba 💀')
